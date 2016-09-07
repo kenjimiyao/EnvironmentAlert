@@ -4,48 +4,138 @@
     <title>設定</title>
 
     <style type="text/css">
+        .row {
+            font-size: 14px;
+            color: #444444;
+        }
+        input {
+            height: 24px;
+            font-size: 12px;
+            padding: 4px;
+            color: #444444;
+        }
+        .label {
+            padding-right: 8px;
+        }
+
+        .url, .aws {
+            width: 240px;
+        }
+        .color, .awscolor {
+            width: 70px;
+        }
+        .message {
+            width: 200px;
+        }
     </style>
 </head>
 
 <body>
 
-<div style="margin:36px auto;width:480px">
+<div style="margin:36px auto;width:640px">
 
-    <input type="text" id="url1" placeholder="URLやドメイン名など(部分一致) ">
-    <input type="text" id="color1" placeholder="色">
-    <input type="text" id="message1" placeholder="表示メッセージ">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定1</span>
+        <input type="text" class="url" id="url1" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color1" placeholder="色">
+        <input type="text" class="message" id="message1" placeholder="表示メッセージ">
+    </p>
 
-    <input type="text" id="url2" placeholder="URLやドメイン名など(部分一致) ">
-    <input type="text" id="color2" placeholder="色">
-    <input type="text" id="message2" placeholder="表示メッセージ">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定2</span>
+        <input type="text" class="url" id="url2" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color2" placeholder="色">
+        <input type="text" class="message" id="message2" placeholder="表示メッセージ">
+    </p>
 
-    <input type="text" id="url3" placeholder="URLやドメイン名など(部分一致) ">
-    <input type="text" id="color3" placeholder="色">
-    <input type="text" id="message3" placeholder="表示メッセージ">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定3</span>
+        <input type="text" class="url" id="url3" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color3" placeholder="色">
+        <input type="text" class="message" id="message3" placeholder="表示メッセージ">
+    </p>
 
-    <input type="text" id="aws1" placeholder="AWSのID">
-    <input type="text" id="awscolor1" placeholder="色">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定4</span>
+        <input type="text" class="url" id="url4" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color4" placeholder="色">
+        <input type="text" class="message" id="message4" placeholder="表示メッセージ">
+    </p>
 
-    <input type="text" id="aws2" placeholder="AWSのID">
-    <input type="text" id="awscolor2" placeholder="色">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定5</span>
+        <input type="text" class="url" id="url5" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color5" placeholder="色">
+        <input type="text" class="message" id="message5" placeholder="表示メッセージ">
+    </p>
 
-    <input type="text" id="aws3" placeholder="AWSのID">
-    <input type="text" id="awscolor3" placeholder="色">
-    <br>
-    <br>
+    <p class="row">
+        <span class="label">設定6</span>
+        <input type="text" class="url" id="url6" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color6" placeholder="色">
+        <input type="text" class="message" id="message6" placeholder="表示メッセージ">
+    </p>
+
+    <p class="row">
+        <span class="label">設定7</span>
+        <input type="text" class="url" id="url7" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color7" placeholder="色">
+        <input type="text" class="message" id="message7" placeholder="表示メッセージ">
+    </p>
+
+    <p class="row">
+        <span class="label">設定8</span>
+        <input type="text" class="url" id="url8" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color8" placeholder="色">
+        <input type="text" class="message" id="message8" placeholder="表示メッセージ">
+    </p>
+
+    <p class="row">
+        <span class="label">設定9</span>
+        <input type="text" class="url" id="url9" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color9" placeholder="色">
+        <input type="text" class="message" id="message9" placeholder="表示メッセージ">
+    </p>
+
+    <p class="row">
+        <span class="label">設定10</span>
+        <input type="text" class="url" id="url10" placeholder="URLやドメイン名など(部分一致) ">
+        <input type="text" class="color" id="color10" placeholder="色">
+        <input type="text" class="message" id="message10" placeholder="表示メッセージ">
+    </p>
+
+    <p class="row">
+        <span class="label">aws設定1</span>
+        <input type="text" class="aws" id="aws1" placeholder="AWSのID">
+        <input type="text" class="awscolor" id="awscolor1" placeholder="色">
+    </p>
+
+    <p class="row">
+        <span class="label">aws設定2</span>
+        <input type="text" class="aws" id="aws2" placeholder="AWSのID">
+        <input type="text" class="awscolor" id="awscolor2" placeholder="色">
+    </p>
+
+    <p class="row">
+        <span class="label">aws設定3</span>
+        <input type="text" class="aws" id="aws3" placeholder="AWSのID">
+        <input type="text" class="awscolor" id="awscolor3" placeholder="色">
+    </p>
+
+    <p class="row">
+        <span class="label">aws設定4</span>
+        <input type="text" class="aws" id="aws4" placeholder="AWSのID">
+        <input type="text" class="awscolor" id="awscolor4" placeholder="色">
+    </p>
+
+    <p class="row">
+        <span class="label">aws設定5</span>
+        <input type="text" class="aws" id="aws5" placeholder="AWSのID">
+        <input type="text" class="awscolor" id="awscolor5" placeholder="色">
+    </p>
 
     <div style="margin:18px" id="status"></div>
-    <button id="save" style="width:100px;height20px;margin:0 18px;">settingSave</button>
+    <button id="save" style="width:100px;height20px;margin:0 18px;">Save settings</button>
 </div>
 
 <script src="options.js"></script>

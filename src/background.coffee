@@ -2,11 +2,12 @@ checkUrl = (num) ->
   l("checkProduction"+num)
   chrome.storage.sync.get(['url'+num, 'color'+num, 'message'+num], (items) ->
     l("get"+num)
-    if items["url"+num] != "" && location.href.includes(items["url"+num])
+    if items["url"+num] && location.href.includes(items["url"+num])
       setAlert(items["color"+num], items["message"+num])
   )
 
 l = (message) ->
+  return
   console.log(message)
 
 checkAws = (num) ->
@@ -16,7 +17,7 @@ checkAws = (num) ->
   chrome.storage.sync.get(['aws'+num, 'awscolor'+num], (items) ->
     id = items['aws'+num]
     l("awsget"+id)
-    if id != "" && document.getElementById("nav-usernameMenu") != null && document.getElementById("nav-usernameMenu").innerHTML.includes(id)
+    if id && document.getElementById("nav-usernameMenu") != null && document.getElementById("nav-usernameMenu").innerHTML.includes(id)
       setAlertAws(items["awscolor"+num])
   )
 
@@ -39,7 +40,9 @@ setAlert = (color, message) ->
   div.style.lineHeight = "27px"
   body.insertBefore(div, body.firstChild)
 
-for i in [1..3]
+for i in [1..10]
   checkUrl(i)
+
+for i in [1..5]
   checkAws(i)
 

@@ -1,12 +1,12 @@
 save_options = ->
   console.log("save_options")
-  for i in [1..3]
+  for i in [1..10]
     if document.getElementById('url'+i).value != ""
       set(i)
     else
       reset(i)
 
-  for i in [1..3]
+  for i in [1..5]
     if document.getElementById('aws'+i).value != ""
       awsSet(i)
     else
@@ -21,8 +21,9 @@ save_options = ->
 
 restore_options = ->
   console.log("restore_options")
-  for i in [0..2]
+  for i in [1..10]
     get(i)
+  for i in [1..5]
     awsGet(i)
 
   return
@@ -46,6 +47,8 @@ awsSet = (num) ->
 awsGet = (num) ->
   console.log("get " + num)
   chrome.storage.sync.get(['aws'+num, 'awscolor'+num], (items) ->
+    if !items['aws'+num]
+      return
     document.getElementById('aws'+num).value = items['aws'+num]
     document.getElementById('awscolor'+num).value = items['awscolor'+num]
   )
@@ -68,6 +71,8 @@ set = (num) ->
 get = (num) ->
   console.log("get " + num)
   chrome.storage.sync.get(['url'+num, 'color'+num, 'message'+num], (items) ->
+    if !items['url'+num]
+      return
     document.getElementById('url'+num).value = items['url'+num]
     document.getElementById('color'+num).value = items['color'+num]
     document.getElementById('message'+num).value = items['message'+num]
