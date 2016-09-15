@@ -6,10 +6,6 @@ checkUrl = (num) ->
       setAlert(items["color"+num], items["message"+num])
   )
 
-l = (message) ->
-  return
-  console.log(message)
-
 checkAws = (num) ->
   if !location.hostname.includes("aws.amazon.com")
     return
@@ -44,6 +40,10 @@ setAlert = (color, message) ->
   div.style.color = "white"
   div.style.lineHeight = "27px"
   body.insertBefore(div, body.firstChild)
+
+l = (message) ->
+  return
+  console.log(message)
 
 for i in [1..10]
   checkUrl(i)
