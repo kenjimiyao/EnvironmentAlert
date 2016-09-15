@@ -14,17 +14,22 @@ checkAws = (num) ->
   if !location.hostname.includes("aws.amazon.com")
     return
 
-  chrome.storage.sync.get(['aws'+num, 'awscolor'+num], (items) ->
+  chrome.storage.sync.get(['aws'+num, 'awscolor'+num, 'awsbackground'+num], (items) ->
     id = items['aws'+num]
     l("awsget"+id)
     if id && document.getElementById("nav-usernameMenu") != null && document.getElementById("nav-usernameMenu").innerHTML.includes(id)
-      setAlertAws(items["awscolor"+num])
+      setAlertAws(items["awscolor"+num], items["awsbackground"+num])
   )
 
-setAlertAws = (color) ->
+setAlertAws = (color, backgroundColor) ->
   [].forEach.call(document.getElementsByClassName("nav-menu"), (el) ->
     el.style.background = color
   )
+  if backgroundColor
+    if document.getElementById("h")
+      document.getElementById("h").style.background = backgroundColor
+    if document.getElementById("c")
+      document.getElementById("c").style.background = backgroundColor
   document.getElementById("nav-menubar").style.background = color
   # document.getElementById("h").style.background = color
 

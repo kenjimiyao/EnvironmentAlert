@@ -42,15 +42,18 @@ awsSet = (num) ->
   data = {}
   data['aws'+num] = document.getElementById('aws'+num).value
   data['awscolor'+num] = document.getElementById('awscolor'+num).value
+  data['awsbackground'+num] = document.getElementById('awsbackground'+num).value
   chrome.storage.sync.set(data)
 
 awsGet = (num) ->
   console.log("get " + num)
-  chrome.storage.sync.get(['aws'+num, 'awscolor'+num], (items) ->
+  chrome.storage.sync.get(['aws'+num, 'awscolor'+num, 'awsbackground'+num], (items) ->
     if !items['aws'+num]
       return
     document.getElementById('aws'+num).value = items['aws'+num]
     document.getElementById('awscolor'+num).value = items['awscolor'+num]
+    if items['awsbackground'+num]
+      document.getElementById('awsbackground'+num).value = items['awsbackground'+num]
   )
 
 awsReset = (num) ->
@@ -58,6 +61,7 @@ awsReset = (num) ->
   data = {}
   data['aws'+num] = ""
   data['awscolor'+num] = ""
+  data['awsbackground'+num] = ""
   chrome.storage.sync.set(data)
 
 set = (num) ->

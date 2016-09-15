@@ -3,4 +3,5 @@ node_modules/
 *~
 .idea
 *.bak
-webstore/
+/webstore/
+/extension/
