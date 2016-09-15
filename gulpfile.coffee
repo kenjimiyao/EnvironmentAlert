@@ -9,8 +9,13 @@ zip = require 'gulp-zip'
 gulp.task 'js', ->
   gulp.src './src/*.coffee'
     .pipe coffee({bare: true})
-    .pipe uglify()
     .pipe gulp.dest('./extension/')
+
+gulp.task 'js_release', ->
+  gulp.src './src/*.coffee'
+  .pipe coffee({bare: true})
+  .pipe uglify()
+  .pipe gulp.dest('./extension/')
 
 gulp.task 'resources', ->
   gulp.src ['./src/*.json', './src/**/*.png', './src/**/*.html']
@@ -30,12 +35,13 @@ gulp.task 'watch', ->
 
 gulp.task 'pack', ->
   target = ['**/*.html', '**/*.js', '**/*.css', '**/*.png', '**/*.json']
-  gulp.src target, {cwd: 'app'}
-  .pipe zip('app.zip')
-  .pipe gulp.dest('webstore')
+  gulp.src target, {cwd: 'extension'}
+    .pipe zip('app.zip')
+    .pipe gulp.dest('webstore')
 
 gulp.task 'release', ->
   runSequence(
-    'default'
+    'js_release'
+    'resources'
     'pack'
   )
