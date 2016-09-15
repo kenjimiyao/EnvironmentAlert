@@ -26,6 +26,12 @@ setAlertAws = (color, backgroundColor) ->
       document.getElementById("h").style.background = backgroundColor
     if document.getElementById("c")
       document.getElementById("c").style.background = backgroundColor
+    if document.getElementById("cc")
+      document.getElementById("cc").style.background = backgroundColor
+    if document.getElementById("f")
+      document.getElementById("f").style.background = backgroundColor
+    if document.getElementById("content")
+      document.getElementById("content").style.background = backgroundColor
   document.getElementById("nav-menubar").style.background = color
   # document.getElementById("h").style.background = color
 

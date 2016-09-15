@@ -8,6 +8,7 @@ zip = require 'gulp-zip'
 
 gulp.task 'js', ->
   gulp.src './src/*.coffee'
+    .pipe(plumber())
     .pipe coffee({bare: true})
     .pipe gulp.dest('./extension/')
 
