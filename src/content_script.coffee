@@ -14,26 +14,31 @@ checkAws = (num) ->
     id = items['aws'+num]
     l("awsget"+id)
     if id && document.getElementById("nav-usernameMenu") != null && document.getElementById("nav-usernameMenu").innerHTML.includes(id)
-      setAlertAws(items["awscolor"+num], items["awsbackground"+num])
+      setAlertAws(items["awscolor"+num], items["awsbackground"+num], document)
+    else if location.pathname.includes("/s3/")
+      setTimeout(->
+        doc = document.getElementsByTagName("iframe")[0].contentWindow.document
+        if id && doc.getElementById("nav-usernameMenu") != null && doc.getElementById("nav-usernameMenu").innerHTML.includes(id)
+          setAlertAws(items["awscolor"+num], items["awsbackground"+num], doc)
+      , 3000)
   )
 
-setAlertAws = (color, backgroundColor) ->
-  [].forEach.call(document.getElementsByClassName("nav-menu"), (el) ->
+setAlertAws = (color, backgroundColor, doc) ->
+  [].forEach.call(doc.getElementsByClassName("nav-menu"), (el) ->
     el.style.background = color
   )
   if backgroundColor
-    if document.getElementById("h")
-      document.getElementById("h").style.background = backgroundColor
-    if document.getElementById("c")
-      document.getElementById("c").style.background = backgroundColor
-    if document.getElementById("cc")
-      document.getElementById("cc").style.background = backgroundColor
-    if document.getElementById("f")
-      document.getElementById("f").style.background = backgroundColor
-    if document.getElementById("content")
-      document.getElementById("content").style.background = backgroundColor
-  document.getElementById("nav-menubar").style.background = color
-  # document.getElementById("h").style.background = color
+    if doc.getElementById("h")
+      doc.getElementById("h").style.background = backgroundColor
+    if doc.getElementById("c")
+      doc.getElementById("c").style.background = backgroundColor
+    if doc.getElementById("cc")
+      doc.getElementById("cc").style.background = backgroundColor
+    if doc.getElementById("f")
+      doc.getElementById("f").style.background = backgroundColor
+    if doc.getElementById("content")
+      doc.getElementById("content").style.background = backgroundColor
+  doc.getElementById("nav-menubar").style.background = color
 
 setAlert = (color, message) ->
   body = document.body
